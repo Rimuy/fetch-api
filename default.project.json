@@ -1,0 +1,6 @@
+{
+        "name": "fetch-api",
+        "tree": {
+                "$path": "lib"
+        }
+}

@@ -1,0 +1,9 @@
+# Project place file
+/fetch-api.rbxlx
+/fetch-api.rbxm
+
+# Roblox Studio lock files
+/*.rbxlx.lock
+/*.rbxl.lock
+
+.vscode
