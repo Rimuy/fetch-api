@@ -30,6 +30,7 @@ local function fetch(self, input, init)
                         statusText = result.StatusMessage,
                         headers = result.Headers,
                         body = result.Body,
+                        url = input.url,
                 }
 
                 if ok then

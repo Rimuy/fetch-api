@@ -5,6 +5,22 @@ local merge = require(script.Parent.merge)
 
 local NONE = {}
 
+local statusMessages = {
+        [200] = 'OK',
+        [201] = 'Created',
+        [202] = 'Accepted',
+        [400] = 'Bad Request',
+        [401] = 'Unauthorized',
+        [402] = 'Payment Required',
+        [403] = 'Forbidden',
+        [404] = 'Not Found',
+        [500] = 'Internal Server Error',
+        [501] = 'Not Implemented',
+        [502] = 'Bad Gateway',
+        [503] = 'Service Unavailable',
+        [504] = 'Gateway Timeout',
+}
+
 local Response do
         Response = { prototype = {} }
         Response.prototype.__index = Response.prototype
@@ -41,7 +57,7 @@ local Response do
                 return setmetatable(copy, Response.prototype)
         end
 
-        function Response.prototype:doError()
+        function Response.prototype:error()
                 return self:redirect(self.url, 400)
         end
 
@@ -52,6 +68,7 @@ local Response do
                         merge(self:clone(), {
                                 url = url,
                                 status = status or self.status,
+                                statusText = statusMessages[status] or 'Unknown',
                         }),
                         { headers = self.headers }
                 )
