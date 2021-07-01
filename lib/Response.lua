@@ -18,7 +18,7 @@ local Response do
                         init = NONE
                 end
 
-                if init.headers ~= nil and Headers.Is(init.headers) == false then
+                if init.headers ~= nil and Headers.is(init.headers) == false then
                         init.headers = Headers.new(init.headers)
                 end
 

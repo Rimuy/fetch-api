@@ -27,7 +27,7 @@ local Request do
                         init.headers = NONE
                 end
 
-                local headers = Headers.Is(init.headers)
+                local headers = Headers.is(init.headers)
                         and init.headers or Headers.new(init.headers)
 
                 return setmetatable({
@@ -39,7 +39,7 @@ local Request do
                 }, Request.prototype)
         end
 
-        function Request.Is(obj)
+        function Request.is(obj)
                 return (type(obj) == 'table' and getmetatable(obj) == Request.prototype)
         end
 

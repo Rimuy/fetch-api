@@ -1,4 +1,3 @@
-
 local function parseUrl(url)
         if url:sub(#url, #url) == '/' then
                 url = url:sub(1, #url - 1)

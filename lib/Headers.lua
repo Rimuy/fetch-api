@@ -7,13 +7,10 @@ local Headers do
         function Headers._new(init)
                 for i, t in ipairs(init) do
                         if #t ~= 2 then
-                                error(
-                                        (INVALID_HEADER_ENTRY_FORMAT):format(
-                                                t[1] and ('"%s"'):format(t[1]) or 'Name',
-                                                t[2] and ('"%s"'):format(t[2]) or 'Value'
-                                        ),
-                                        3
-                                )
+                                error((INVALID_HEADER_ENTRY_FORMAT):format(
+                                        t[1] and ('"%s"'):format(t[1]) or 'Name',
+                                        t[2] and ('"%s"'):format(t[2]) or 'Value'
+                                ), 3)
                         end
 
                         init[t[1]] = t[2]
@@ -27,7 +24,7 @@ local Headers do
                 return Headers._new(init)
         end
 
-        function Headers.Is(obj)
+        function Headers.is(obj)
                 return (type(obj) == 'table' and getmetatable(obj) == Headers.prototype)
         end
 

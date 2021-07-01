@@ -15,7 +15,7 @@ local function fetch(self, input, init)
 
         if type(input) == 'string' then
                 input = Request.new(input, init)
-        elseif Request.Is(input) == false then
+        elseif Request.is(input) == false then
                 error('Invalid request format', 2)
         end
 
