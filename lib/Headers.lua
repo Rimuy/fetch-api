@@ -88,11 +88,11 @@ local Headers do
                 return keys
         end
 
-        function Headers:set(name, value)
+        function Headers.prototype:set(name, value)
                 self[name] = value
         end
 
-        function Headers:values()
+        function Headers.prototype:values()
                 local n = self:_count()
 
                 local values = table.create(n)
